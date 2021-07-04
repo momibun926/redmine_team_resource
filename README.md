@@ -1,4 +1,4 @@
-# Team recource monitoring Plugin
+# Team resource monitoring Plugin
 
 This plugin provides the function of summarize resource by specify projects.
 
