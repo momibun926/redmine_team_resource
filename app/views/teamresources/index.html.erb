@@ -2,11 +2,12 @@
 <% content_for :header_tags do %>
   <%= stylesheet_link_tag "team_resource",   plugin: "redmine_team_resource" %>
 <% end %>
-<%= @summarize_resourse[1][1].keys %>
-<%= @summarize_resourse.keys.each do |assignee_id| %>
-  <%= @summarize_resourse.keys %><br>
-  <%= @summarize_resourse[assignee_id].kesy.each do |project_id| %>
-    <%= project_id %><br>
-    data<%= @summarize_resourse[assignee_id][project_id] %>data
+<% @summarize_resourse[-1][1] %><br>
+<% @summarize_resourse[1][1] %><br>
+<% [-1, 1].each do |assignee_id| %>
+  <% assignee_id %><br>
+  <% [0, 1 ,2].each do |project_id| %>
+    <% project_id %><br>
+    data<% @summarize_resourse[assignee_id][project_id] %>data
   <% end %>
 <% end %>

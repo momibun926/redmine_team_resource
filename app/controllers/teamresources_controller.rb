@@ -23,11 +23,17 @@ class TeamresourcesController < ApplicationController
       issue.assigned_to_id ||= -1
       assigned_days = working_days(issue.start_date, issue.due_date)
       hours_per_day = issue_hours_per_day(issue.estimated_hours.to_f, assigned_days.length)
+      Rails.logger.info(issue.assigned_to_id)
+      Rails.logger.info(issue.project_id)
       assigned_days.each do |date|
+        Rails.logger.info(date)
         temp[date] = @summarize_resourse[issue.assigned_to_id][issue.project_id][date]
         @summarize_resourse[issue.assigned_to_id][issue.project_id][date] = add_daily_hour(temp[date], hours_per_day)
       end
+      Rails.logger.info(@summarize_resourse[1][1])
+
     end
+    @summarize_resourse
   end
 
   # Estimated time per day.
