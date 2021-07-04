@@ -17,9 +17,8 @@ class TeamresourcesController < ApplicationController
     project_ids = [1, 2, 3, 4, 5, 6, 7, 8, 9]
     temp = {}
     @summarize_resourse = Hash.new(Hash.new({}))
-
-    @issues = specify_project_issue(project_ids)
-    @issues.each do |issue|
+    issues = specify_project_issue(project_ids)
+    issues.each do |issue|
       issue.due_date ||= Version.find(issue.fixed_version_id).effective_date
       issue.assigned_to_id ||= -1
       assigned_days = working_days(issue.start_date, issue.due_date)
