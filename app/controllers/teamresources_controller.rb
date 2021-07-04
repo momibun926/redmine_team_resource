@@ -4,23 +4,22 @@
 # 1. before action
 #
 class TeamresourcesController < ApplicationController
-include ResourceDataFetcher
+  include ResourceDataFetcher
   # menu
-  menu_item :teamresourcemonitor
+  # menu_item :teamresourcemonitor
   # Before action
-  before_action :authorize
+  # before_action :authorize
 
   # View of main page.
   #
   def index
-
     # test code
-    project_ids = [1, 2, 3]
-
+    project_ids = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+    temp = {}
     @summarize_resourse = Hash.new(Hash.new({}))
 
-    issues = specify_project_issue(project_ids)
-    issues.each do |issue|
+    @issues = specify_project_issue(project_ids)
+    @issues.each do |issue|
       issue.due_date ||= Version.find(issue.fixed_version_id).effective_date
       issue.assigned_to_id ||= -1
       assigned_days = working_days(issue.start_date, issue.due_date)
@@ -28,6 +27,7 @@ include ResourceDataFetcher
       assigned_days.each do |date|
         temp[date] = @summarize_resourse[issue.assigned_to_id][issue.project_id][date]
         @summarize_resourse[issue.assigned_to_id][issue.project_id][date] = add_daily_hour(temp[date], hours_per_day)
+      end
     end
   end
 
@@ -40,7 +40,7 @@ include ResourceDataFetcher
     (estimated_hours || 0.0) / days
   end
 
-    # working days.
+  # working days.
   # exclude weekends and holiday or include weekends and holiday.
   #
   # @param [Date] start_date start date of issue

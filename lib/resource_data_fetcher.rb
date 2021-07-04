@@ -18,6 +18,6 @@ module ResourceDataFetcher
   # @return [Issue] issue object
   def specify_project_issue(project_ids)
     Issue.where(SQL_COM.to_s).
-      where(project_id = project_ids)
+      where(project_id: project_ids)
   end
 end

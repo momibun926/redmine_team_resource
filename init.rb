@@ -14,10 +14,10 @@ Redmine::Plugin.register :redmine_team_resource do
   version "0.0.1"
   url "https://github.com/momibun926/redmine_team_resource"
   author_url "https://github.com/momibun926"
-  project_module :Teamresourcemonitor do
-    permission :view_teamresources, teamresources: :index, require: :member
+  # permission
+  project_module :teamresourcemonitor do
+    permission :view_teamresources, teamresources: :index
   end
-
   # menu
   menu :top_menu, :teamresourcemonitor, { controller: :teamresources, action: :index },
        caption: "Team resource monitor", param: :project_id
