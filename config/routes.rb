@@ -1,4 +1,4 @@
 # routing
 Rails.application.routes.draw do
-  resources :teamresources
+  resources :teamresources, only: [:index]
 end

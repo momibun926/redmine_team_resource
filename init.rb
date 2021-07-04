@@ -20,5 +20,5 @@ Redmine::Plugin.register :redmine_team_resource do
   end
   # menu
   menu :top_menu, :teamresourcemonitor, { controller: :teamresources, action: :index },
-       caption: "Team resource monitor", param: :project_id
+       caption: "Team resource monitor"
 end

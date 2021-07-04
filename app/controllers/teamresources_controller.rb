@@ -15,25 +15,25 @@ class TeamresourcesController < ApplicationController
   def index
     # test code
     project_ids = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-    temp = {}
     @summarize_resourse = Hash.new(Hash.new({}))
     issues = specify_project_issue(project_ids)
     issues.each do |issue|
       issue.due_date ||= Version.find(issue.fixed_version_id).effective_date
-      issue.assigned_to_id ||= -1
+      issue.assigned_to_id ||= 999
       assigned_days = working_days(issue.start_date, issue.due_date)
       hours_per_day = issue_hours_per_day(issue.estimated_hours.to_f, assigned_days.length)
-      Rails.logger.info(issue.assigned_to_id)
-      Rails.logger.info(issue.project_id)
+      temp = {}
       assigned_days.each do |date|
+        Rails.logger.info("USER:#{issue.assigned_to_id}")
+        Rails.logger.info("PROJECT:#{issue.project_id}")
         Rails.logger.info(date)
+        Rails.logger.info(hours_per_day)
         temp[date] = @summarize_resourse[issue.assigned_to_id][issue.project_id][date]
         @summarize_resourse[issue.assigned_to_id][issue.project_id][date] = add_daily_hour(temp[date], hours_per_day)
       end
-      Rails.logger.info(@summarize_resourse[1][1])
-
     end
-    @summarize_resourse
+    @user_list = [999, 1]
+    @project_list = [1, 2]
   end
 
   # Estimated time per day.

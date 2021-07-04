@@ -1,0 +1,13 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    holidays (8.4.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  holidays
+
+BUNDLED WITH
+   1.17.2
