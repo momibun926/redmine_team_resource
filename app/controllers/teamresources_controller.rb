@@ -19,20 +19,17 @@ class TeamresourcesController < ApplicationController
     issues = specify_project_issue(project_ids)
     issues.each do |issue|
       issue.due_date ||= Version.find(issue.fixed_version_id).effective_date
-      issue.assigned_to_id ||= 999
+      issue.assigned_to_id ||= 0
       assigned_days = working_days(issue.start_date, issue.due_date)
       hours_per_day = issue_hours_per_day(issue.estimated_hours.to_f, assigned_days.length)
-      temp = @summarize_resourse["USER#{issue.assigned_to_id}PROJECT#{issue.project_id}".to_sym]
+      hash_key = "USER#{issue.assigned_to_id}PROJECT#{issue.project_id}".to_sym
+      temp = @summarize_resourse[hash_key]
       temp ||= {}
       assigned_days.each do |date|
-        Rails.logger.info(date)
-        Rails.logger.info(hours_per_day)
         temp[date] = add_daily_hour(temp[date], hours_per_day)
       end
-      @summarize_resourse["USER#{issue.assigned_to_id}PROJECT#{issue.project_id}".to_sym] = temp
+      @summarize_resourse[hash_key] = temp
     end
-    @user_list = [999, 1, 2, 3, 4, 5]
-    @project_list = [1, 2, 3, 4, 5]
   end
 
   # Estimated time per day.
