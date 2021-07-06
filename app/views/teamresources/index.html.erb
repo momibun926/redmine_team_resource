@@ -2,7 +2,9 @@
 <% content_for :header_tags do %>
   <%= stylesheet_link_tag "team_resource",   plugin: "redmine_team_resource" %>
 <% end %>
+<% before_k = "" %>
 <% @summarize_resourse.keys.each do |k| %>
-  <%= k %><br>
+  <% summary_title(before_k, k) %><br>
   <%= @summarize_resourse[k] %><br>
+  <% before_k = k %>
 <% end %>
