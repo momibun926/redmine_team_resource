@@ -2,10 +2,7 @@
 <% content_for :header_tags do %>
   <%= stylesheet_link_tag "team_resource",   plugin: "redmine_team_resource" %>
 <% end %>
-<% @user_list.each do |assignee_id| %>
-  <%= assignee_id %><br>
-  <% @project_list.each do |project_id| %>
-    <%= project_id %><br>
-    <%= @summarize_resourse[assignee_id][project_id] %><br>
-  <% end %>
+<% @summarize_resourse.keys.each do |k| %>
+  <%= k %><br>
+  <%= @summarize_resourse[k.to_sym] %><br>
 <% end %>
