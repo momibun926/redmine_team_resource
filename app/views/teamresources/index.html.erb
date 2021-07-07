@@ -2,6 +2,28 @@
 <% content_for :header_tags do %>
   <%= stylesheet_link_tag "team_resource",   plugin: "redmine_team_resource" %>
 <% end %>
+<script>
+  function disableobject( object, ischecked ) {
+    document.getElementById(object).disabled = ischecked;
+  }
+</script>
+<!-- Option -->
+<%= form_tag url_for(action: :index), method: :get, id: "query_form" do %>
+  <fieldset id="filters" class="collapsible">
+    <legend onclick="toggleFieldset(this);" class="icon icon-collapsed"><%= l(:label_options) %></legend>
+      <%= select_tag :selected_project_ids,
+          options_from_collection_for_select(@selectable_project_list, :id, :name,
+                                             @selected_project_ids),
+                                             { multiple: true, size: 5 }%>
+
+  </fieldset>
+  <!-- Apply button -->
+  <p class="buttons">
+    <%= link_to "#", {onclick: "$(this).closest('form').submit()", class: "icon icon-checked" } do l(:button_apply) end %>
+    <%= link_to l(:button_clear), { selected_project_ids: {} }, :class => "icon icon-reload"  %>
+  </p>
+<% end %>
+<!-- display data -->
 <% before_user = "" %>
 <% @summarize_by_month.keys.sort.each do |k| %>
   <% if before_user == get_user_name(k) %>
