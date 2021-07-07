@@ -2,20 +2,16 @@
 <% content_for :header_tags do %>
   <%= stylesheet_link_tag "team_resource",   plugin: "redmine_team_resource" %>
 <% end %>
-<script>
-  function disableobject( object, ischecked ) {
-    document.getElementById(object).disabled = ischecked;
-  }
-</script>
+<h1><%= l(:caption_menu_team_resource_monitor) %></h1>
 <!-- Option -->
 <%= form_tag url_for(action: :index), method: :get, id: "query_form" do %>
   <fieldset id="filters" class="collapsible">
     <legend onclick="toggleFieldset(this);" class="icon icon-collapsed"><%= l(:label_options) %></legend>
+    <div style="display: none;">
       <%= select_tag :selected_project_ids,
-          options_from_collection_for_select(@selectable_project_list, :id, :name,
-                                             @selected_project_ids),
-                                             { multiple: true, size: 5 }%>
-
+          options_from_collection_for_select(@selectable_project_list, :id, :name, @selected_project_ids),
+                                             { multiple: true, size: 5 } %>
+    </div>
   </fieldset>
   <!-- Apply button -->
   <p class="buttons">
@@ -33,11 +29,11 @@
     </tr>
   <% else %>
     <% if before_user == "" %>
-      <H1><%= get_user_name(k) %></H1>
+      <h2><%= get_user_name(k) %></h2>
       <table id="sumrized_table" border="1" bordercolor = "#bbb">
     <% else %>
       </table><br>
-      <H1><%= get_user_name(k) %></H1>
+      <h2><%= get_user_name(k) %></h2>
       <table id="sumrized_table" border="1" bordercolor = "#bbb">
     <% end %>
     <tr>
