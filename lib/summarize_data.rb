@@ -2,7 +2,10 @@
 #
 module SummarizeData
   include ResourceDataFetcher
-  # Summarize by date
+  # Create data of summarize by date
+  #
+  # @param [Array] project_ids specify ids of project
+  # @return [Hash] summarized date
   def create_summarize_by_date(project_ids)
     summarize_by_date = {}
     issues = specify_project_issue(project_ids)
@@ -22,7 +25,10 @@ module SummarizeData
     summarize_by_date
   end
 
-  # Create summarize date by month
+  # Create data of summarize by month
+  #
+  # @param [Hash] summarize_by_date summarize of date
+  # @return [Hash] summarized date
   def create_summarize_by_month(summarize_by_date)
     temp_days = {}
     summarize_by_month = {}
@@ -42,6 +48,9 @@ module SummarizeData
   end
 
   # create range of month
+  #
+  # @param [Hash] summarize_by_month summarize of month
+  # @return [Array] month of existing data
   def create_range_month(summarize_by_month)
     month_array = []
     summarize_by_month.each_key do |k|
