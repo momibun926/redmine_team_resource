@@ -4,6 +4,9 @@
   width: auto;
   border-collapse: collapse;
 }
+#sumrized_table th{
+  background-color: #aaa;
+}
 #sumrized_value {
   text-align: center;
 }
