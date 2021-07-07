@@ -1,106 +1,18 @@
-/*** General ***/
-h4 {
-  font-weight: 800;
-}
-
-/*** metrics ***/
-.evm-div-col {
-  margin-top: 5px;
-  padding: 0px 30px 0px 0px;
-  float: left;
-}
-.evm-div-col fieldset{
-  border-style: none;
-}
-.evm-div-col fieldset legend{
-  font-style: italic;
-}
-.metrics-apply {
-  clear:both;
-}
-td.difference-red {
-  font-weight: bold;
-  color: #FF0000;
-}
-
-/*** project metrics ***/
-#metrics-table td {
-  min-width: 20px;
-}
-
 /*** summary evm indicator ***/
-#evm-indicator-value-table {
-  border: 1px solid #bbb;
-  width: auto;
-  border-collapse: collapse;
-}
-#evm-indicator-value-table th {
-  background-color: #eee;
-}
-/*** summary evm indicator ***/
-#evm-indicator-value-table {
+#sumrized_table {
   border: 1px solid #bbb;
   width: auto;
   border-collapse: collapse;
 }
 
-#evm-indicator-value-table td,
-#evm-indicator-value-table th {
-  width: 80px;
-  padding: 2px;
+#sumrized_value {
   text-align: center;
 }
-td.indicator-red {
-  background-color: #FF0000;
-}
-td.indicator-orange {
-  background-color: #FF8C00;
+
+#hdear_project {
+  width: 300px;
 }
 
-/*** sidebar ***/
-div[class*="evm-explanation"] {
-  width: auto;
-  padding-left: 20px;
-  padding-bottom: 20px;
-}
-
-/*** icon image ***/
-.icon-parent-issue-evm {
-  background-image: url("../images/parent-issue-evm.png");
-}
-.icon-tracker-evm {
-  background-image: url("../images/tracker-evm.png");
-}
-.icon-version-evm {
-  background-image: url("../images/version-evm.png");
-}
-.icon-exclude-evm {
-  background-image: url("../images/issue-exclude.png");
-}
-
-/*** for activity page ***/
-dt.evmbaseline-new {
-  background-image: url("../images/baseline-add.png");
-}
-dt.evmbaseline-edit {
-  background-image: url("../images/baseline-edit.png");
-}
-
-/*** for validate ***/
-.field_with_errors {
-  padding: 2px;
-  background-color: red;
-  display: table;
-}
-
-/*** for baseline setting ***/
-#wrapper input[readonly],
-#wrapper textarea[readonly] {
-  background-color:aliceblue;
-}
-
-/*** for baseline difference detail ***/
-.baseline_diff {
-  font-weight: bold;
-  color: red;
+#header_month {
+  width: 100px;
 }

@@ -34,7 +34,7 @@ module SummarizeData
     summarize_by_month = {}
     summarize_by_date.each_key do |k|
       temp_days = summarize_by_date[k]
-      temp_month = {}
+      temp_month = Hash.new(0)
       temp_days.each do |k, v|
         if temp_month[k.strftime("%Y-%m")].nil?
           temp_month[k.strftime("%Y-%m")] = temp_days[k]

@@ -2,17 +2,31 @@
 <% content_for :header_tags do %>
   <%= stylesheet_link_tag "team_resource",   plugin: "redmine_team_resource" %>
 <% end %>
-<table border="1" bordercolor = "#bbb">
-  <tr>
-    <th>User</th>
-    <th>Project</th>
-    <% @reange_month.each do |year_month|%><th><%=year_month%></th><% end %>
-  </tr>
-  <% @summarize_by_month.keys.sort.each do |k| %>
+<% before_user = "" %>
+<% @summarize_by_month.keys.sort.each do |k| %>
+  <% if before_user == get_user_name(k) %>
     <tr>
-      <td><%= get_user_name(k) %></td>
       <td><%= get_project_name(k) %></td>
-      <% @reange_month.each do |year_month|%><td><%=@summarize_by_month[k][year_month]%></td><% end %>
+      <% @reange_month.each do |year_month|%><td id="sumrized_value"><%=@summarize_by_month[k][year_month] %></td><% end %>
+    </tr>
+  <% else %>
+    <% if before_user == "" %>
+      <H1><%= get_user_name(k) %></H1>
+      <table id="sumrized_table" border="1" bordercolor = "#bbb">
+    <% else %>
+      </table>
+      <H1><%= get_user_name(k) %></H1>
+      <table id="sumrized_table" border="1" bordercolor = "#bbb">
+    <% end %>
+    <tr>
+      <th id="hdear_project">Project</th>
+      <% @reange_month.each do |year_month|%><th id="header_month"><%=year_month%></th><% end %>
+    </tr>
+    <tr>
+      <td><%= get_project_name(k) %></td>
+      <% @reange_month.each do |year_month|%><td id="sumrized_value"><%=@summarize_by_month[k][year_month].round(1) %></td><% end %>
     </tr>
   <% end %>
+  <% before_user = get_user_name(k) %>
+<% end %>
 </table>
