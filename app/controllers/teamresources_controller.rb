@@ -1,7 +1,4 @@
 # Team resource controller.
-# This controller provide main monitor view.
-#
-# 1. before action
 #
 class TeamresourcesController < ApplicationController
   include SummarizeData
