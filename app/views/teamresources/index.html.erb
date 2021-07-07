@@ -2,12 +2,17 @@
 <% content_for :header_tags do %>
   <%= stylesheet_link_tag "team_resource",   plugin: "redmine_team_resource" %>
 <% end %>
-<%= @sumiraize_month %>
-<% before_user = "" %>
-<% @sumiraize_month.keys.each do |k| %>
-  <% current_user = User.find_by(id: get_user_id(k)) || "Not Assigned" %><br>
-  <%= current_user if before_user != current_user  %><br>
-  <%= Project.find_by(id: get_project_id(k)) %><br>
-  <%= @sumiraize_month[k] %><br>
-  <% before_user = current_user %>
-<% end %>
+<table border="1" bordercolor = "#bbb">
+  <tr>
+    <th>User</th>
+    <th>Project</th>
+    <% @reange_month.each do |year_month|%><th><%=year_month%></th><% end %>
+  </tr>
+  <% @sumiraize_month.keys.sort.each do |k| %>
+    <tr>
+      <td><%=User.find_by(id: get_user_id(k)) || "Not Assigned"%></td>
+      <td><%= Project.find_by(id: get_project_id(k))%></td>
+      <% @reange_month.each do |year_month|%><td><%=@sumiraize_month[k][year_month]%></td><% end %>
+    </tr>
+  <% end %>
+</table>

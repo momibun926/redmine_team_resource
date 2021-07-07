@@ -33,6 +33,7 @@ class TeamresourcesController < ApplicationController
 
     temp_days = {}
     @sumiraize_month = {}
+    range_year_month = []
     @summarize_resourse.each_key do |k|
       temp_days = @summarize_resourse[k]
       temp_month = {}
@@ -42,9 +43,11 @@ class TeamresourcesController < ApplicationController
         else
           temp_month[k.strftime("%Y-%m")] += temp_days[k]
         end
+        range_year_month << k.strftime("%Y-%m")
       end
       @sumiraize_month[k] = temp_month
     end
+    @reange_month = range_year_month.uniq.sort
   end
 
   # Estimated time per day.
