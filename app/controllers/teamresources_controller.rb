@@ -30,6 +30,21 @@ class TeamresourcesController < ApplicationController
       end
       @summarize_resourse[hash_key] = temp
     end
+
+    temp_days = {}
+    @sumiraize_month = {}
+    @summarize_resourse.each_key do |k|
+      temp_days = @summarize_resourse[k]
+      temp_month = {}
+      temp_days.each do |k, v|
+        if temp_month[k.strftime("%Y-%m")].nil?
+          temp_month[k.strftime("%Y-%m")] = temp_days[k]
+        else
+          temp_month[k.strftime("%Y-%m")] += temp_days[k]
+        end
+      end
+      @sumiraize_month[k] = temp_month
+    end
   end
 
   # Estimated time per day.
