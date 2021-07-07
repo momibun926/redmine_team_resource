@@ -8,11 +8,11 @@
     <th>Project</th>
     <% @reange_month.each do |year_month|%><th><%=year_month%></th><% end %>
   </tr>
-  <% @sumiraize_month.keys.sort.each do |k| %>
+  <% @summarize_by_month.keys.sort.each do |k| %>
     <tr>
-      <td><%=User.find_by(id: get_user_id(k)) || "Not Assigned"%></td>
-      <td><%= Project.find_by(id: get_project_id(k))%></td>
-      <% @reange_month.each do |year_month|%><td><%=@sumiraize_month[k][year_month]%></td><% end %>
+      <td><%= get_user_name(k) %></td>
+      <td><%= get_project_name(k) %></td>
+      <% @reange_month.each do |year_month|%><td><%=@summarize_by_month[k][year_month]%></td><% end %>
     </tr>
   <% end %>
 </table>

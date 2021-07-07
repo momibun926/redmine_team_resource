@@ -15,7 +15,7 @@ class TeamresourcesController < ApplicationController
   def index
     # test code
     project_ids = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-    @summarize_resourse = {}
+    summarize_by_date = {}
     issues = specify_project_issue(project_ids)
     issues.each do |issue|
       issue.due_date ||= Version.find(issue.fixed_version_id).effective_date
@@ -23,19 +23,21 @@ class TeamresourcesController < ApplicationController
       assigned_days = working_days(issue.start_date, issue.due_date)
       hours_per_day = issue_hours_per_day(issue.estimated_hours.to_f, assigned_days.length)
       hash_key = "USER#{issue.assigned_to_id}PROJECT#{issue.project_id}".to_sym
-      temp = @summarize_resourse[hash_key]
+      temp = summarize_by_date[hash_key]
       temp ||= {}
       assigned_days.each do |date|
         temp[date] = add_daily_hour(temp[date], hours_per_day)
       end
-      @summarize_resourse[hash_key] = temp
+      summarize_by_date[hash_key] = temp
     end
 
     temp_days = {}
-    @sumiraize_month = {}
+    @range_start_month = nil
+    @range_end_month = nil
+    @summarize_by_month = {}
     range_year_month = []
-    @summarize_resourse.each_key do |k|
-      temp_days = @summarize_resourse[k]
+    summarize_by_date.each_key do |k|
+      temp_days = summarize_by_date[k]
       temp_month = {}
       temp_days.each do |k, v|
         if temp_month[k.strftime("%Y-%m")].nil?
@@ -45,7 +47,7 @@ class TeamresourcesController < ApplicationController
         end
         range_year_month << k.strftime("%Y-%m")
       end
-      @sumiraize_month[k] = temp_month
+      @summarize_by_month[k] = temp_month
     end
     @reange_month = range_year_month.uniq.sort
   end
