@@ -1,18 +1,15 @@
-/*** summary evm indicator ***/
+/*** summarize by monthe ***/
 #sumrized_table {
   border: 1px solid #bbb;
   width: auto;
   border-collapse: collapse;
 }
-
 #sumrized_value {
   text-align: center;
 }
-
 #hdear_project {
   width: 300px;
 }
-
 #header_month {
   width: 100px;
 }

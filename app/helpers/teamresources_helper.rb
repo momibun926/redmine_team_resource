@@ -1,4 +1,5 @@
 # Team resource helper.
+#
 module TeamresourcesHelper
   # Get user id from hash key
   def get_user_name(key)

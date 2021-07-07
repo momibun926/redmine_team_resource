@@ -5,11 +5,6 @@
 #
 class TeamresourcesController < ApplicationController
   include SummarizeData
-  # menu
-  # menu_item :teamresourcemonitor
-  # Before action
-  # before_action :authorize
-
   # View of main page.
   #
   def index
