@@ -66,13 +66,13 @@ module TeamresourcesHelper
   #
   # @param [Symbol] key
   # @param [Array] range_month
-  # @param [Hash] summarize_user_total_by_month
-  # @param [String] hours_of_day
+  # @param [Hash] total_by_month
+  # @param [String] hours
   # @return [String] user total row html
-  def total_row(key, range_month, summarize_user_total_by_month, hours_of_day)
-    ret = tag.td(label_total_time(hours_of_day))
-    range_month.each do |year_month|
-      value = (summarize_user_total_by_month[key.to_s.split("PROJECT")[0]][year_month] / hours_of_day.to_f).round(1)
+  def total_row(key, range_month, total_by_month, hours)
+    ret = tag.td(label_total_time(hours))
+    range_month.each do |m|
+      value = (total_by_month[key.to_s.split("PROJECT")[0]][m] / hours.to_f).round(1)
       ret += tag.td(value, id: "total_value")
     end
     tag.tr(ret, id: "total_row")
@@ -95,6 +95,10 @@ module TeamresourcesHelper
   # @param [String] key hash key. ex USERxxxPROJECTxxx
   # @return [String] user name and tabale tag
   def user_and_table_start(key)
-    tag.h2(get_user_name(key)) + tag(:table, id: "sumrized_table", border: "1", bordercolor: "#bbb", open: true)
+    tag.h2(get_user_name(key)) + tag(:table,
+                                     id: "sumrized_table",
+                                     border: "1",
+                                     bordercolor: "#bbb",
+                                     open: true)
   end
 end
