@@ -6,3 +6,5 @@ ja:
   desc_mainpage: 自分がメンバーになっているプロジェクト、かつACTIVEなプロジェクトの月別工数（見積時間）を集計します
   # No assigned
   no_assigned: 担当者なし
+  # Label
+  label_hours_of_day: 1日の労働時間

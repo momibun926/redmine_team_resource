@@ -9,9 +9,16 @@
   <fieldset id="filters" class="collapsible">
     <legend onclick="toggleFieldset(this);" class="icon icon-collapsed"><%= l(:label_options) %></legend>
     <div style="display: none;">
-      <%= select_tag :selected_project_ids,
+      <div class="option-div-col">
+        <%= l(:label_project) %><br>
+        <%= select_tag :selected_project_ids,
           options_from_collection_for_select(@selectable_project_list, :id, :name, @selected_project_ids),
                                              { multiple: true, size: 5 } %>
+      </div>
+      <div class="option-div-col">
+        <%= l(:label_hours_of_day) %><br>
+        <%= text_field_tag :hours_of_day, params[:hours_of_day], size: 3 %><br>
+      </div>
     </div>
   </fieldset>
   <!-- Apply button -->
@@ -26,7 +33,7 @@
   <% if before_user == get_user_name(k) %>
     <tr>
       <td><%= get_project_name(k) %></td>
-      <% @reange_month.each do |year_month|%><td id="sumrized_value"><%=@summarize_by_month[k][year_month].round(1) %></td><% end %>
+      <% @reange_month.each do |year_month|%><td id="sumrized_value"><%=(@summarize_by_month[k][year_month].to_f/@hours_of_day.to_f).round(1) %></td><% end %>
     </tr>
   <% else %>
     <% if before_user == "" %>
@@ -38,16 +45,16 @@
       <table id="sumrized_table" border="1" bordercolor = "#bbb">
     <% end %>
     <tr>
-      <th id="hdear_project">Project</th>
+      <th id="hdear_project"><%= l(:label_project) %></th>
       <% @reange_month.each do |year_month|%><th id="header_month"><%=year_month%></th><% end %>
     </tr>
       <tr id="total_row">
-      <td>Total</td>
-      <% @reange_month.each do |year_month|%><td id="total_value"><%=@summarize_user_total_by_month[k.to_s.split("PROJECT")[0]][year_month].round(1) %></td><% end %>
+      <td><%= l(:label_total_time) %></td>
+      <% @reange_month.each do |year_month|%><td id="total_value"><%=(@summarize_user_total_by_month[k.to_s.split("PROJECT")[0]][year_month].to_f/@hours_of_day.to_f).round(1) %></td><% end %>
       </tr>
     <tr>
       <td><%= get_project_name(k) %></td>
-      <% @reange_month.each do |year_month|%><td id="sumrized_value"><%=@summarize_by_month[k][year_month].round(1) %></td><% end %>
+      <% @reange_month.each do |year_month|%><td id="sumrized_value"><%=(@summarize_by_month[k][year_month].to_f/@hours_of_day.to_f).round(1) %></td><% end %>
     </tr>
   <% end %>
   <% before_user = get_user_name(k) %>

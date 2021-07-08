@@ -6,3 +6,5 @@ zh:
   desc_mainpage: Summarize the monthly man-hours (estimated hours) of projects in which you are a member and which are ACTIVE projects.
   # No assignee
   no_assigned: Not assigned
+  # Label
+  label_hours_of_day: Hours per day

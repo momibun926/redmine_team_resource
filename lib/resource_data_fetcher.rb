@@ -14,7 +14,7 @@ module ResourceDataFetcher
 
   # Get issues of specify project.
   #
-  # @param [array] project_ids project ids
+  # @param [Array] project_ids project ids
   # @return [Issue] issue object
   def specify_project_issue(project_ids)
     Issue.where(SQL_COM.to_s).
