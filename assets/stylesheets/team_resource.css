@@ -1,4 +1,4 @@
-/*** summarize by month ***/
+/*** summarize table ***/
 #sumrized_table {
   border: 1px solid #bbb;
   width: auto;
@@ -15,13 +15,13 @@
   text-align: center;
 }
 #total_row {
-border-bottom: double;
+  border-bottom: double;
 }
 #hdear_project {
-  width: 300px;
+  min-width: 300px;
 }
 #header_month {
-  width: 80px;
+  min-width: 80px;
 }
 /*** option area ***/
 .option-div-col {
