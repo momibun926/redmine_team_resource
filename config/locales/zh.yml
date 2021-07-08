@@ -3,10 +3,10 @@ zh:
   # menu
   caption_menu_team_resource_monitor: Team resource monitor
   # decription
-  desc_mainpage: Summarize the monthly man-hours (estimated hours) of projects in which you are a member and which are ACTIVE projects.
+  desc_mainpage: 显示的是你是成员的项目的每月工时（估计工时），这些项目是活跃的项目
   # No assignee
-  no_assigned: Not assigned
+  no_assigned: 未指定
   # Label
-  label_hours_of_day: Hours per day
-  label_total_days: Total of days
-  label_total_hours: Total of hours
+  label_hours_of_day: 每天的小时数
+  label_total_days: 总天数
+  label_total_hours: 小时总数
