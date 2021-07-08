@@ -10,7 +10,7 @@ Redmine::Plugin.register :redmine_team_resource do
   name "Redmine Team Resource Monitoring plugin"
   author "Hajime Nakagama"
   description "Shown summarize the monthly man-hours (estimated hours) of projects in which you are a member and which are ACTIVE projects."
-  version "0.2.0"
+  version "0.3.0"
   url "https://github.com/momibun926/redmine_team_resource"
   author_url "https://github.com/momibun926"
   # permission
