@@ -46,16 +46,11 @@ Metrics/MethodLength:
 Layout/LineLength:
   Max: 150
 
-Metrics/BlockLength:
-  Max: 25
-  Exclude:
-    - "init.rb"
-
 Metrics/CyclomaticComplexity:
-  Max: 10
+  Max: 8
 
 Metrics/PerceivedComplexity:
-  Max: 10
+  Max: 8
 
 Metrics/AbcSize:
   Max: 30

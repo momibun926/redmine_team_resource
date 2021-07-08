@@ -56,7 +56,8 @@ module TeamresourcesHelper
   def value_row(key, range_month, summarize_by_month, hours_of_day)
     ret = tag.td(link_to_member_project(key))
     range_month.each do |year_month|
-      ret += tag.td((summarize_by_month[key][year_month] / hours_of_day.to_f).round(1), id: "sumrized_value")
+      value = (summarize_by_month[key][year_month] / hours_of_day.to_f).round(1)
+      ret += tag.td(value, id: "sumrized_value")
     end
     tag.tr(ret)
   end
@@ -71,7 +72,8 @@ module TeamresourcesHelper
   def total_row(key, range_month, summarize_user_total_by_month, hours_of_day)
     ret = tag.td(label_total_time(hours_of_day))
     range_month.each do |year_month|
-      ret += tag.td((summarize_user_total_by_month[key.to_s.split("PROJECT")[0]][year_month] / hours_of_day.to_f).round(1), id: "total_value")
+      value = (summarize_user_total_by_month[key.to_s.split("PROJECT")[0]][year_month] / hours_of_day.to_f).round(1)
+      ret += tag.td(value, id: "total_value")
     end
     tag.tr(ret, id: "total_row")
   end
