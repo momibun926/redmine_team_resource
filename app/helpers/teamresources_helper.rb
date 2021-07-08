@@ -1,12 +1,28 @@
 # Team resource helper.
 #
 module TeamresourcesHelper
+  # Get user id from hash key
+  #
+  # @param [Symbol] key concatinate user id and project id. ex: USER1PROJECT10
+  # @return [String] user id
+  def user_id_from_key(key)
+    key.to_s.split("USER")[1].split("PROJECT")[0]
+  end
+
+  # Get project id from hash key
+  #
+  # @param [Symbol] key concatinate user id and project id. ex: USER1PROJECT10
+  # @return [String] project id
+  def project_id_from_key(key)
+    key.to_s.split("USER")[1].split("PROJECT")[1]
+  end
+
   # Get user name from hash key
   #
   # @param [Symbol] key concatinate user id and project id. ex: USER1PROJECT10
   # @return [String] user name.
   def get_user_name(key)
-    User.find_by(id: key.to_s.split("USER")[1].split("PROJECT")[0]) || l(:no_assigned)
+    User.find_by(id: user_id_from_key(key)) || l(:no_assigned)
   end
 
   # Get project name from hash key
@@ -14,8 +30,7 @@ module TeamresourcesHelper
   # @param [Symbol] key concatinate user id and project id. ex: USER1PROJECT10
   # @return [String] project name and link.
   def link_to_member_project(key)
-    project_id = key.to_s.split("USER")[1].split("PROJECT")[1]
-    proj = Project.find_by(id: project_id)
+    proj = Project.find_by(id: project_id_from_key(key))
     link_to(proj.name, project_path(proj) + "/issues")
   end
 
