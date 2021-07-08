@@ -1,7 +1,7 @@
 ﻿# japanease translation
 ja:
   # menu
-  caption_menu_team_resource_monitor: 月次工数確認
+  caption_menu_team_resource_monitor: 月別工数確認
   # decription
   desc_mainpage: 自分がメンバーになっているプロジェクト、かつACTIVEなプロジェクトの月別工数（見積時間）を集計します
   # No assigned
