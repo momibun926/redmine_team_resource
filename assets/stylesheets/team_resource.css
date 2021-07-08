@@ -10,6 +10,13 @@
 #sumrized_value {
   text-align: center;
 }
+#total_value {
+  font-weight: bold;
+  text-align: center;
+}
+#total_row {
+border-bottom: double;
+}
 #hdear_project {
   width: 300px;
 }

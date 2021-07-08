@@ -13,5 +13,6 @@ class TeamresourcesController < ApplicationController
     summarize_by_date = create_summarize_by_date(@selected_project_ids)
     @summarize_by_month = create_summarize_by_month(summarize_by_date)
     @reange_month = create_range_month(@summarize_by_month)
+    @summarize_user_total_by_month = create_summarize_user_total_by_month(@summarize_by_month)
   end
 end

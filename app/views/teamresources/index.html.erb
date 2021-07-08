@@ -26,7 +26,7 @@
   <% if before_user == get_user_name(k) %>
     <tr>
       <td><%= get_project_name(k) %></td>
-      <% @reange_month.each do |year_month|%><td id="sumrized_value"><%=@summarize_by_month[k][year_month] %></td><% end %>
+      <% @reange_month.each do |year_month|%><td id="sumrized_value"><%=@summarize_by_month[k][year_month].round(1) %></td><% end %>
     </tr>
   <% else %>
     <% if before_user == "" %>
@@ -41,6 +41,10 @@
       <th id="hdear_project">Project</th>
       <% @reange_month.each do |year_month|%><th id="header_month"><%=year_month%></th><% end %>
     </tr>
+      <tr id="total_row">
+      <td>Total</td>
+      <% @reange_month.each do |year_month|%><td id="total_value"><%=@summarize_user_total_by_month[k.to_s.split("PROJECT")[0]][year_month].round(1) %></td><% end %>
+      </tr>
     <tr>
       <td><%= get_project_name(k) %></td>
       <% @reange_month.each do |year_month|%><td id="sumrized_value"><%=@summarize_by_month[k][year_month].round(1) %></td><% end %>

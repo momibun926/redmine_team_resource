@@ -32,6 +32,7 @@ module SummarizeData
   def create_summarize_by_month(summarize_by_date)
     temp_days = {}
     summarize_by_month = {}
+    summarize_by_month_user_total = {}
     summarize_by_date.each_key do |k|
       temp_days = summarize_by_date[k]
       temp_month = Hash.new(0)
@@ -45,6 +46,28 @@ module SummarizeData
       summarize_by_month[k] = temp_month
     end
     summarize_by_month
+  end
+
+  # Create data of summarize user total by month
+  #
+  # @param [Hash] summarize_by_month summarize of month
+  # @return [Hash] summarized date
+  def create_summarize_user_total_by_month(summarize_by_month)
+    summarize_by_month_user_total = {}
+    # key = USRxxxPROJECTxxx
+    summarize_by_month.each_key do |k|
+      temp_month = summarize_by_month_user_total[k.to_s.split("PROJECT")[0]] || Hash.new{0}
+      # key = YYYY-MM
+      summarize_by_month[k].each_key do |yyyymm|
+        if temp_month[yyyymm].nil?
+          temp_month[yyyymm] = summarize_by_month[k][yyyymm]
+        else
+          temp_month[yyyymm] += summarize_by_month[k][yyyymm]
+        end
+      end
+      summarize_by_month_user_total[k.to_s.split("PROJECT")[0]] = temp_month
+    end
+    summarize_by_month_user_total
   end
 
   # create range of month
