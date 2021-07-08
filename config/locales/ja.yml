@@ -8,3 +8,5 @@ ja:
   no_assigned: 担当者なし
   # Label
   label_hours_of_day: 1日の労働時間
+  label_total_days: 合計（日数）
+  label_total_hours: 合計（時間）

@@ -7,3 +7,5 @@
   no_assigned: Not assigned
   # Label
   label_hours_of_day: Hours per day
+  label_total_days: Total of days
+  label_total_hours: Total of hours

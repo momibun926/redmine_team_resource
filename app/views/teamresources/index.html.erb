@@ -49,7 +49,7 @@
       <% @reange_month.each do |year_month|%><th id="header_month"><%=year_month%></th><% end %>
     </tr>
       <tr id="total_row">
-      <td><%= l(:label_total_time) %></td>
+      <td><%= label_total_time(@hours_of_day) %></td>
       <% @reange_month.each do |year_month|%><td id="total_value"><%=(@summarize_user_total_by_month[k.to_s.split("PROJECT")[0]][year_month].to_f/@hours_of_day.to_f).round(1) %></td><% end %>
       </tr>
     <tr>

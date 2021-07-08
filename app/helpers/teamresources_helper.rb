@@ -18,4 +18,17 @@ module TeamresourcesHelper
     proj = Project.find_by(id: project_id)
     link_to(proj.name, project_path(proj) + "/issues")
   end
+
+  # Label total
+  #
+  # @param [String] hours of day
+  # @return [String] caption of total
+  def label_total_time(hours_of_day)
+    if hours_of_day.to_s == "1.0"
+      l(:label_total_hours)
+    else
+      l(:label_total_days)
+    end
+  end
+
 end

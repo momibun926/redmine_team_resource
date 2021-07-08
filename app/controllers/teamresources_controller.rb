@@ -15,6 +15,6 @@ class TeamresourcesController < ApplicationController
     @summarize_user_total_by_month = create_summarize_user_total_by_month(@summarize_by_month)
     @reange_month = create_range_month(@summarize_by_month)
     # hours of day
-    @hours_of_day = params[:hours_of_day] || 1.0
+    @hours_of_day = params[:hours_of_day] || "1.0"
   end
 end
