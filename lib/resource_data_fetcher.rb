@@ -15,9 +15,12 @@ module ResourceDataFetcher
   # Get issues of specify project.
   #
   # @param [Array] project_ids project ids
+  # @param [bool] only_me shown only me
   # @return [Issue] issue object
-  def specify_project_issue(project_ids)
+  def specify_project_issue(project_ids, only_me)
+    condition = only_me ? { assigned_to_id: User.current.id } : {}
     Issue.where(SQL_COM.to_s).
-      where(project_id: project_ids)
+      where(project_id: project_ids).
+      where(condition)
   end
 end

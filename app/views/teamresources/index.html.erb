@@ -2,6 +2,11 @@
 <% content_for :header_tags do %>
   <%= stylesheet_link_tag "team_resource",   plugin: "redmine_team_resource" %>
 <% end %>
+<script>
+  function disableobject( object, ischecked ) {
+    document.getElementById(object).disabled = ischecked;
+  }
+</script>
 <h1><%= l(:caption_menu_team_resource_monitor) %></h1>
 <p><%= l(:desc_mainpage)%></p>
 <!-- Option -->
@@ -19,6 +24,13 @@
         <%= l(:label_hours_of_day) %><br>
         <%= text_field_tag :hours_of_day, params[:hours_of_day], size: 3 %><br>
       </div>
+      <div class="option-div-col">
+        <%= l(:label_show_member) %><br>
+        <%= check_box_tag :only_me, "true",
+                          params[:only_me],
+                          onclick: "disableobject('evmbaseline_id', this.checked);"%>
+        <%= l(:label_only_me) %>
+       </div>
     </div>
   </fieldset>
   <div style="clear:both;"></div>

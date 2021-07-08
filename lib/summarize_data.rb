@@ -5,10 +5,11 @@ module SummarizeData
   # Create data of summarize by date
   #
   # @param [Array] project_ids specify ids of project
+  # @param [bool] only_me shown only me
   # @return [Hash] summarized date
-  def create_summarize_by_date(project_ids)
+  def create_summarize_by_date(project_ids, only_me)
     summarize_by_date = {}
-    issues = specify_project_issue(project_ids)
+    issues = specify_project_issue(project_ids, only_me)
     issues.each do |issue|
       issue.due_date ||= Version.find(issue.fixed_version_id).effective_date
       issue.assigned_to_id ||= 0

@@ -16,6 +16,7 @@
 }
 #total_row {
   border-bottom: double;
+  background-color: #eee;
 }
 #hdear_project {
   min-width: 300px;
