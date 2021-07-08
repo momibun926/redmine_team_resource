@@ -21,6 +21,7 @@
       </div>
     </div>
   </fieldset>
+  <div style="clear:both;"></div>
   <!-- Apply button -->
   <p class="buttons">
     <%= link_to "#", {onclick: "$(this).closest('form').submit()", class: "icon icon-checked" } do l(:button_apply) end %>
@@ -31,31 +32,15 @@
 <% before_user = "" %>
 <% @summarize_by_month.keys.sort.each do |k| %>
   <% if before_user == get_user_name(k) %>
-    <tr>
-      <td><%= link_to_member_project(k) %></td>
-      <% @reange_month.each do |year_month|%><td id="sumrized_value"><%=(@summarize_by_month[k][year_month].to_f/@hours_of_day.to_f).round(1) %></td><% end %>
-    </tr>
+    <%= value_row(k, @range_month, @summarize_by_month, @hours_of_day) %>
   <% else %>
-    <% if before_user == "" %>
-      <h2><%= get_user_name(k) %></h2>
-      <table id="sumrized_table" border="1" bordercolor = "#bbb">
-    <% else %>
+    <% if before_user != "" %>
       </table><br>
-      <h2><%= get_user_name(k) %></h2>
-      <table id="sumrized_table" border="1" bordercolor = "#bbb">
     <% end %>
-    <tr>
-      <th id="hdear_project"><%= l(:label_project) %></th>
-      <% @reange_month.each do |year_month|%><th id="header_month"><%=year_month%></th><% end %>
-    </tr>
-      <tr id="total_row">
-      <td><%= label_total_time(@hours_of_day) %></td>
-      <% @reange_month.each do |year_month|%><td id="total_value"><%=(@summarize_user_total_by_month[k.to_s.split("PROJECT")[0]][year_month].to_f/@hours_of_day.to_f).round(1) %></td><% end %>
-      </tr>
-    <tr>
-      <td><%= link_to_member_project(k) %></td>
-      <% @reange_month.each do |year_month|%><td id="sumrized_value"><%=(@summarize_by_month[k][year_month].to_f/@hours_of_day.to_f).round(1) %></td><% end %>
-    </tr>
+    <%= user_and_table_start(k) %>
+    <%= header_row(@range_month) %>
+    <%= total_row(k, @range_month, @summarize_user_total_by_month, @hours_of_day ) %>
+    <%= value_row(k, @range_month, @summarize_by_month, @hours_of_day) %>
   <% end %>
   <% before_user = get_user_name(k) %>
 <% end %>
