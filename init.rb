@@ -1,5 +1,4 @@
 require "redmine"
-require "holidays/core_extensions/date"
 
 # Extention for ate class
 class Date
@@ -10,8 +9,8 @@ end
 Redmine::Plugin.register :redmine_team_resource do
   name "Redmine Team Resource Monitoring plugin"
   author "Hajime Nakagama"
-  description ""
-  version "0.0.1"
+  description "Shown summarize the monthly man-hours (estimated hours) of projects in which you are a member and which are ACTIVE projects."
+  version "0.2.0"
   url "https://github.com/momibun926/redmine_team_resource"
   author_url "https://github.com/momibun926"
   # permission

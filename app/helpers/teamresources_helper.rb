@@ -13,7 +13,7 @@ module TeamresourcesHelper
   #
   # @param [Symbol] key concatinate user id and project id. ex: USER1PROJECT10
   # @return [String] project name.
-  def get_project_name(key)
+  def link_to_member_project(key)
     project_id = key.to_s.split("USER")[1].split("PROJECT")[1]
     proj = Project.find_by(id: project_id)
     link_to(proj.name, project_path(proj) + "/issues")

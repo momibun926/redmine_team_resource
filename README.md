@@ -3,7 +3,7 @@
 This plugin provides the function of summarize estimated hours by specify projects.
 
 ## Current Version
-0.1.0
+0.2.0
 
 ## Compatibility
 Redmine 4.0.0 and above

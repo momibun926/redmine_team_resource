@@ -32,7 +32,7 @@
 <% @summarize_by_month.keys.sort.each do |k| %>
   <% if before_user == get_user_name(k) %>
     <tr>
-      <td><%= get_project_name(k) %></td>
+      <td><%= link_to_member_project(k) %></td>
       <% @reange_month.each do |year_month|%><td id="sumrized_value"><%=(@summarize_by_month[k][year_month].to_f/@hours_of_day.to_f).round(1) %></td><% end %>
     </tr>
   <% else %>
@@ -53,7 +53,7 @@
       <% @reange_month.each do |year_month|%><td id="total_value"><%=(@summarize_user_total_by_month[k.to_s.split("PROJECT")[0]][year_month].to_f/@hours_of_day.to_f).round(1) %></td><% end %>
       </tr>
     <tr>
-      <td><%= get_project_name(k) %></td>
+      <td><%= link_to_member_project(k) %></td>
       <% @reange_month.each do |year_month|%><td id="sumrized_value"><%=(@summarize_by_month[k][year_month].to_f/@hours_of_day.to_f).round(1) %></td><% end %>
     </tr>
   <% end %>
