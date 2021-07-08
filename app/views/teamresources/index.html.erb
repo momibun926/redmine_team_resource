@@ -12,7 +12,7 @@
       <div class="option-div-col">
         <%= l(:label_project) %><br>
         <%= select_tag :selected_project_ids,
-          options_from_collection_for_select(@selectable_project_list, :id, :name, @selected_project_ids),
+          options_from_collection_for_select(@selectable_project_list, :id, :name, params[:selected_project_ids]),
                                              { multiple: true, size: 5 } %>
       </div>
       <div class="option-div-col">
@@ -44,4 +44,4 @@
   <% end %>
   <% before_user = get_user_name(k) %>
 <% end %>
-</table>
+</table><br>
