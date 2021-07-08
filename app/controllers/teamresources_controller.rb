@@ -6,7 +6,7 @@ class TeamresourcesController < ApplicationController
   #
   def index
     # project of member and active
-    @selectable_project_list = Project.allowed_to(User.current, :view_project, {member: true}).active
+    @selectable_project_list = Project.allowed_to(User.current, :view_project, { member: true }).active
     # selected project ids
     @selected_project_ids = params[:selected_project_ids] || @selectable_project_list
     # summarize data
@@ -24,7 +24,7 @@ class TeamresourcesController < ApplicationController
   # No set hours of day is "1.0"
   #
   def default_hours_of_day
-    if params[:hours_of_day].nil? or params[:hours_of_day] == ""
+    if params[:hours_of_day].nil? || params[:hours_of_day] == ""
       "1.0"
     else
       params[:hours_of_day]

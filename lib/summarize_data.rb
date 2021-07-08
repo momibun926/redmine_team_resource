@@ -32,15 +32,14 @@ module SummarizeData
   def create_summarize_by_month(summarize_by_date)
     temp_days = {}
     summarize_by_month = {}
-    summarize_by_month_user_total = {}
     summarize_by_date.each_key do |k|
       temp_days = summarize_by_date[k]
       temp_month = Hash.new(0)
-      temp_days.each do |k, v|
-        if temp_month[k.strftime("%Y-%m")].nil?
-          temp_month[k.strftime("%Y-%m")] = temp_days[k]
+      temp_days.each_key do |date|
+        if temp_month[date.strftime("%Y-%m")].nil?
+          temp_month[date.strftime("%Y-%m")] = temp_days[date]
         else
-          temp_month[k.strftime("%Y-%m")] += temp_days[k]
+          temp_month[date.strftime("%Y-%m")] += temp_days[date]
         end
       end
       summarize_by_month[k] = temp_month
@@ -56,7 +55,7 @@ module SummarizeData
     summarize_by_month_user_total = {}
     # key = USRxxxPROJECTxxx
     summarize_by_month.each_key do |k|
-      temp_month = summarize_by_month_user_total[k.to_s.split("PROJECT")[0]] || Hash.new{0}
+      temp_month = summarize_by_month_user_total[k.to_s.split("PROJECT")[0]] || Hash.new { 0 }
       # key = YYYY-MM
       summarize_by_month[k].each_key do |yyyymm|
         if temp_month[yyyymm].nil?
