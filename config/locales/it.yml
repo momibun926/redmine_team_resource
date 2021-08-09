@@ -1,0 +1,13 @@
+it:
+  # menu
+  caption_menu_team_resource_monitor: Monitoraggio risorse di squadra
+  # descrizione
+  desc_mainpage: Mostra il riepilogo delle ore uomo mensili (ore stimate) dei progetti di cui sei membro e che sono progetti ATTIVI.
+  # Nessun assegnatario
+  no_assigned: Non assegnato
+  # Etichetta
+  label_hours_of_day: Ore al giorno
+  label_total_days: Totale dei giorni
+  label_total_hours: Totale delle ore
+  label_show_member: Mostra il membro
+  label_only_me: Mostra solo me

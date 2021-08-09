@@ -1,0 +1,13 @@
+ru:
+  # меню
+  caption_menu_team_resource_monitor: Монитор ресурсов команды
+  # расшифровка
+  desc_mainpage: Показывается сводка ежемесячных человеко-часов (расчетных часов) проектов, в которых вы участвуете и которые являются АКТИВНЫМИ проектами.
+  # No assignee
+  no_assigned: Не назначен
+  # Label
+  label_hours_of_day: Часы в день
+  label_total_days: Общее количество дней
+  label_total_hours: Общее количество часов
+  label_show_member: Показать члена
+  label_only_me: Показать только меня
