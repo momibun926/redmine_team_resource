@@ -1,6 +1,6 @@
 # Team resource monitoring Plugin
 
-This plugin provides the function of summarize estimated hours by specify projects.
+Aggregate the estimated time for the project you are assigned to. You can also aggregate the estimated time for any project.
 
 ## Current Version
 0.3.0
@@ -17,7 +17,7 @@ The below are used.
 
 ## About workig days
 1. Excluding weekends
-2. If it is only weekends, make it a working day
+2. If the estimated hours are only for weekends, then the weekends are also calculated as working hours.
 
 # Installation
 (1) Getting plugin source
@@ -41,6 +41,9 @@ git clone https://github.com/momibun926/redmine_team_resource [redmine_root]/plu
 ```
 rake redmine:plugins:migrate NAME=redmine_team_resource VERSION=0
 ```
+# Screen shots
+**Overview**
+![screenshot](./images/overview.png "overview")
 
 # Contributing
 1. Fork it
@@ -51,10 +54,10 @@ rake redmine:plugins:migrate NAME=redmine_team_resource VERSION=0
 
 # My Environment
 Environment:
-*  Redmine version                4.2.0.stable.20876
-*  Ruby version                   2.6.5-p114 (2019-10-01) [x86_64-linux]
-*  Rails version                  5.2.5
-*  Environment                    production
-*  Database adapter               PostgreSQL
-*  Mailer queue                   ActiveJob::QueueAdapters::AsyncAdapter
-*  Mailer delivery                smtp
+ * Redmine version                4.2.2.stable.21129
+ * Ruby version                   2.6.5-p114 (2019-10-01) [x86_64-linux]
+ * Rails version                  5.2.6
+ * Environment                    production
+ * Database adapter               PostgreSQL
+ * Mailer queue                   ActiveJob::QueueAdapters::AsyncAdapter
+ * Mailer delivery                smtp

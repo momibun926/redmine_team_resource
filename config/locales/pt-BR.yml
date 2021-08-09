@@ -1,0 +1,13 @@
+pt-BR:
+  # menu
+  caption_menu_team_resource_monitor: Monitor de recursos da equipe
+  # decrição
+  desc_mainpage: Mostrado resume as horas-homem mensais (horas estimadas) dos projetos nos quais você é membro e que são projetos ATIVOS.
+  # Sem cessionário
+  no_assigned: Não atribuído
+  # Rótulo
+  label_hours_of_day: Horas por dia
+  label_total_days: Total de dias
+  label_total_hours: Total de horas
+  label_show_member: Mostrar membro
+  label_only_me: Mostre somente a mim
