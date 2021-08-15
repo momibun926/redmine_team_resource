@@ -22,7 +22,7 @@
       </div>
       <div class="option-div-col">
         <%= l(:label_hours_of_day) %><br>
-        <%= text_field_tag :hours_of_day, params[:hours_of_day], size: 3 %><br>
+        <%= number_field_tag :hours_of_day, @hours_of_day, in: 1.0..24.0, step: 0.1 %><br>
       </div>
       <div class="option-div-col">
         <%= l(:label_show_member) %><br>
