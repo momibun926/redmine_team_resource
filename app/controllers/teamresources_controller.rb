@@ -26,6 +26,12 @@ class TeamresourcesController < ApplicationController
   # No set hours of day is "1.0"
   #
   def default_hours_of_day
-    params[:hours_of_day].presence || "1.0"
+    hours = case params[:hours_of_day].to_f
+            when 1.0..24.0
+              params[:hours_of_day]
+            else
+              1.0
+            end
+    format("%.1f", hours)
   end
 end
