@@ -1,16 +1,11 @@
 require "redmine"
 
-# Extention for ate class
-class Date
-  include Holidays::CoreExtensions::Date
-end
-
 # module define
 Redmine::Plugin.register :redmine_team_resource do
   name "Redmine Team Resource Monitoring plugin"
   author "Hajime Nakagama"
   description "Aggregate the estimated time for the project you are assigned to."
-  version "0.4.0"
+  version "0.4.1"
   url "https://github.com/momibun926/redmine_team_resource"
   author_url "https://github.com/momibun926"
   # permission
