@@ -1,6 +1,8 @@
 it:
   # menu
   caption_menu_team_resource_monitor: TRM
+  # main window title
+  label_trm_main_title: Monitoraggio risorse di squadra
   # descrizione
   desc_mainpage: Mostra il riepilogo delle ore uomo mensili (ore stimate) dei progetti di cui sei membro e che sono progetti ATTIVI.
   # Nessun assegnatario

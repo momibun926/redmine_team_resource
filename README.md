@@ -3,7 +3,7 @@
 Aggregate the estimated time for the project you are assigned to. You can also aggregate the estimated time for any project.
 
 ## Current Version
-0.4.2
+0.4.3
 
 ## Compatibility
 Redmine 4.0.0 and above
