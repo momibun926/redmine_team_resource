@@ -5,7 +5,7 @@ Redmine::Plugin.register :redmine_team_resource do
   name "Redmine Team Resource Monitoring plugin"
   author "Hajime Nakagama"
   description "Aggregate the estimated time for the project you are assigned to."
-  version "0.4.1"
+  version "0.4.2"
   url "https://github.com/momibun926/redmine_team_resource"
   author_url "https://github.com/momibun926"
   # permission

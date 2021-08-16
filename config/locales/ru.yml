@@ -1,6 +1,6 @@
 ru:
   # меню
-  caption_menu_team_resource_monitor: Монитор ресурсов команды
+  caption_menu_team_resource_monitor: TRM
   # расшифровка
   desc_mainpage: Показывается сводка ежемесячных человеко-часов (расчетных часов) проектов, в которых вы участвуете и которые являются АКТИВНЫМИ проектами.
   # No assignee

@@ -1,6 +1,6 @@
 pt:
   # menu
-  caption_menu_team_resource_monitor: Monitor de recursos da equipa
+  caption_menu_team_resource_monitor: TRM
   # decrição
   desc_mainpage: Mostrado resume as horas-homem mensais (horas estimadas) dos projectos em que é membro e que são projectos ACTIVOS.
   # Nenhum cessionário
