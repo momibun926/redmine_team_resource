@@ -1,7 +1,7 @@
 ﻿# chinese translation
 zh:
   # menu
-  caption_menu_team_resource_monitor: Team resource monitor
+  caption_menu_team_resource_monitor: TRM
   # decription
   desc_mainpage: 显示的是你是成员的项目的每月工时（估计工时），这些项目是活跃的项目
   # No assignee
